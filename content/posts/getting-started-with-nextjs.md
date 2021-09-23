@@ -10,3 +10,8 @@ isFeatured: true
 
 This is some regular text with a [link](https://google.com)
 
+# File-based Routing
+![Test](nextjs-file-based-routing.png)
+
+... More content ...
+

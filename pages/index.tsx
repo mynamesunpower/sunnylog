@@ -1,44 +1,30 @@
+import React from "react";
 import Hero from "../components/mainpage/hero";
 import FeaturedPosts from "../components/mainpage/featured-posts";
+import {getFeaturedPosts} from "../lib/posts-util";
+import {CommonProps} from "../types/common";
 
-const DUMMY_POSTS = [
-  {
-    slug: "getting-started-with-nextjs",
-    title: "Getting Started with NextJS",
-    image: "getting-started-nextjs.png",
-    excerpt: "NextJS is a the React framework for production",
-    date: "2022-02-10",
-  },
-  {
-    slug: "getting-started-with-nextjs2",
-    title: "Getting Started with NextJS",
-    image: "getting-started-nextjs.png",
-    excerpt: "NextJS is a the React framework for production",
-    date: "2022-02-10",
-  },
-  {
-    slug: "getting-started-with-nextjs3",
-    title: "Getting Started with NextJS",
-    image: "getting-started-nextjs.png",
-    excerpt: "NextJS is a the React framework for production",
-    date: "2022-02-10",
-  },
-  {
-    slug: "getting-started-with-nextjs4",
-    title: "Getting Started with NextJS",
-    image: "getting-started-nextjs.png",
-    excerpt: "NextJS is a the React framework for production",
-    date: "2022-02-10",
-  },
-];
 
-const MainPage = () => {
+const MainPage: React.FC<CommonProps> = (props) => {
+  const {posts} = props;
+
   return (
     <>
       <Hero />
-      <FeaturedPosts posts={DUMMY_POSTS} />
+      <FeaturedPosts posts={posts} />
     </>
   );
 };
+
+export function getStaticProps() {
+  const featuredPost = getFeaturedPosts();
+
+  return {
+    props: {
+      posts: featuredPost
+    },
+    // revalidate: 1800
+  }
+}
 
 export default MainPage;

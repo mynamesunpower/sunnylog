@@ -4,5 +4,6 @@ interface Post {
   image: string;
   date: string;
   content: string;
+  excerpt: string;
   isFeatured: boolean;
 }

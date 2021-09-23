@@ -9,6 +9,8 @@ interface IPostItem {
 
 const PostItem: React.FC<IPostItem> = ({ post }) => {
   const { title, image, excerpt, date, slug } = post;
+  console.log(post);
+  console.log(excerpt);
 
   const formattedDate = new Date(date).toLocaleDateString("ko-KR", {
     day: "numeric",
