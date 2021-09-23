@@ -23,9 +23,7 @@ async function handler(req, res) {
       email,
       name,
       message,
-      id: undefined,
     };
-
     let client;
     try {
       client = await MongoClient.connect(
@@ -39,19 +37,18 @@ async function handler(req, res) {
     const db = client.db();
 
     try {
-      const result = await db.collection("messages").insertOne(newMessage);
-      newMessage.id = result.insertedId;
+      const result = await db.collection("messages").insertOne(newMessage); // insert된 객체에도 _id 프로퍼티가 붙어버림.
     } catch (e) {
       client.close();
       res.status(500).json({ message: "Storing message failed!" });
       return;
     }
-
     client.close();
 
-    res
-      .status(201)
-      .json({ message: "Successfully stored message!", result: newMessage });
+    res.status(201).json({
+      message: "Successfully stored message!",
+      result: newMessage,
+    });
   }
 }
 
