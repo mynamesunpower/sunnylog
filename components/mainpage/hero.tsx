@@ -12,8 +12,8 @@ const Hero = () => {
           height={300}
         />
       </div>
-      <h1>Hi, I'm sunny, a pseudo-dev.</h1>
-      <p>Web Development</p>
+      <h1>안녕하세요</h1>
+      <p>개발자입니다</p>
     </section>
   );
 };

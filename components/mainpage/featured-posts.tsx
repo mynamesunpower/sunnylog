@@ -9,7 +9,7 @@ interface IFeaturedPosts {
 const FeaturedPosts: React.FC<IFeaturedPosts> = ({ posts }) => {
   return (
     <section className={classes.latest}>
-      <h2>Featured Posts</h2>
+      <h2>포스트</h2>
       <PostsGrid posts={posts} />
     </section>
   );

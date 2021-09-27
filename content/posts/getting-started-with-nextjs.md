@@ -1,17 +1,16 @@
 ---
-title: 'Getting started with NextJS'
-date: '2022-10-15'
+title: '시작하기'
+date: '2021-9-27'
 author: 'Sunny Kim'
 image: getting-started-nextjs.png
-excerpt: "NextJS is a the React framework for production"
+excerpt: "테스트 마크다운입니다"
 isFeatured: true
 ---
-# This is a title.
+# 제목
 
-This is some regular text with a [link](https://google.com)
+테스트 텍스트와 [링크](https://google.com)
 
-# File-based Routing
-![Test](nextjs-file-based-routing.png)
+# 내용
+![이미지](nextjs-file-based-routing.png)
 
-... More content ...
 

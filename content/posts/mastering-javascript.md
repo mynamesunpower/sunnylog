@@ -1,14 +1,14 @@
 ---
-title: Mastering JavaScript
-excerpt: JavaScript is the most important programming language for web development. You probably don't know it well enough!
+title: JavaScript 익히기
+excerpt: 자바스크립트는 범용성 끝판왕이지롱!
 image: mastering-js-thumb.png
 isFeatured: false
-date: '2021-10-30'
+date: '2021-9-27'
 ---
 
-JavaScript powers the web - it's **the** most important programming language you need to know as a web developer.
+자바스크립트는 웹 개발자로서는 반드시 **알아야 하는** 언어입니다.
 
-For example, you should understand code like this:
+JS를 안다면, 다음 코드도 무슨 뜻인지 알겠쥬?
 
 ```js
 const basics = 'Okay, that should not be too difficult actually';
@@ -19,5 +19,3 @@ function printBasics() {
 
 printBasics();
 ```
-
-Learn more about it [here](https://academind.com).
