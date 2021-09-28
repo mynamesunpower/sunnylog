@@ -48,6 +48,9 @@ const ContactForm: React.FC = () => {
         message: enteredMessage,
       });
       setRequestStatus('success');
+      setEnteredMessage('');
+      setEnteredEmail('');
+      setEnteredName('');
     } catch (error) {
       setRequestError(error.message);
       setRequestStatus('error');
@@ -59,23 +62,23 @@ const ContactForm: React.FC = () => {
   if (requestStatus === 'pending') {
     notification = {
       status: 'pending',
-      title: 'Sending message...',
-      message: 'Your Message is on its way!',
+      title: '전송',
+      message: '보내는 중...',
     };
   }
 
   if (requestStatus === 'success') {
     notification = {
       status: 'success',
-      title: 'Success!',
-      message: 'Message send successfully!',
+      title: '성공!',
+      message: '문의 전송 완료!',
     };
   }
 
   if (requestStatus === 'error') {
     notification = {
       status: 'error',
-      title: 'Error!',
+      title: '아이쿠!',
       message: requestError,
     };
   }
