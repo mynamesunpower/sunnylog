@@ -1,7 +1,8 @@
-import Image from "next/image";
-import classes from "./hero.module.css";
+import Image from 'next/image';
+import classes from './hero.module.css';
+import React from 'react';
 
-const Hero = () => {
+const Hero: React.FC = () => {
   return (
     <section className={classes.hero}>
       <div className={classes.image}>

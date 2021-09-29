@@ -1,6 +1,7 @@
 import classes from './profile-form.module.css';
+import React from 'react';
 
-function ProfileForm() {
+const ProfileForm: React.FC = () => {
   return (
     <form className={classes.form}>
       <div className={classes.control}>
@@ -16,6 +17,6 @@ function ProfileForm() {
       </div>
     </form>
   );
-}
+};
 
 export default ProfileForm;

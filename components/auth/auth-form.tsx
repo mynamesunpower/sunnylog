@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import classes from './auth-form.module.css';
 
-function AuthForm() {
+const AuthForm: React.FC = () => {
   const [isLogin, setIsLogin] = useState(true);
 
   function switchAuthModeHandler() {
@@ -33,6 +33,6 @@ function AuthForm() {
       </form>
     </section>
   );
-}
+};
 
 export default AuthForm;

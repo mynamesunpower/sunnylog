@@ -1,12 +1,12 @@
-import React from "react";
-import classes from "./posts-grid.module.css";
-import PostItem from "./post-item";
+import React from 'react';
+import classes from './posts-grid.module.css';
+import PostItem from './post-item';
 
-interface IPostsGrid {
+interface PostsGridProps {
   posts: any;
 }
 
-const PostsGrid: React.FC<IPostsGrid> = (props) => {
+const PostsGrid: React.FC<PostsGridProps> = (props) => {
   const { posts } = props;
 
   return (

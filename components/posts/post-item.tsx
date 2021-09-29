@@ -1,19 +1,19 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import classes from "./post-item.module.css";
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import classes from './post-item.module.css';
 
-interface IPostItem {
+interface PostItemProps {
   post: any;
 }
 
-const PostItem: React.FC<IPostItem> = ({ post }) => {
+const PostItem: React.FC<PostItemProps> = ({ post }) => {
   const { title, image, excerpt, date, slug } = post;
 
-  const formattedDate = new Date(date).toLocaleDateString("ko-KR", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
+  const formattedDate = new Date(date).toLocaleDateString('ko-KR', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
   });
 
   const imagePath = `/images/posts/${slug}/${image}`;

@@ -1,12 +1,12 @@
-import React from "react";
-import classes from "./featured-posts.module.css";
-import PostsGrid from "../posts/posts-grid";
+import React from 'react';
+import classes from './featured-posts.module.css';
+import PostsGrid from '../posts/posts-grid';
 
-interface IFeaturedPosts {
+interface FeaturedPostsProps {
   posts: any;
 }
 
-const FeaturedPosts: React.FC<IFeaturedPosts> = ({ posts }) => {
+const FeaturedPosts: React.FC<FeaturedPostsProps> = ({ posts }) => {
   return (
     <section className={classes.latest}>
       <h2>포스트</h2>

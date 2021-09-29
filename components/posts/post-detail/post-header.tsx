@@ -1,13 +1,13 @@
-import React from "react";
-import Image from "next/image";
-import classes from "./post-header.module.css";
+import React from 'react';
+import Image from 'next/image';
+import classes from './post-header.module.css';
 
-interface IPostHeader {
+interface PostHeaderProps {
   title: any;
   image: any;
 }
 
-const PostHeader: React.FC<IPostHeader> = (props) => {
+const PostHeader: React.FC<PostHeaderProps> = (props) => {
   const { title, image } = props;
   return (
     <header className={classes.header}>
