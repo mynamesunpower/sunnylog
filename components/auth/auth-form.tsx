@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import classes from './auth-form.module.css';
 
-const createUser = async (email, password) => {
+const createUser = async (email: string, password: string) => {
   const response = await fetch('/api/auth/signup', {
     method: 'POST',
     body: JSON.stringify({ email, password }),
