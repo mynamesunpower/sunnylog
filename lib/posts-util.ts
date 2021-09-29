@@ -1,13 +1,14 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 
-const postsDirectory: string = path.join(process.cwd(), "content", "posts");
+const postsDirectory: string = path.join(process.cwd(), 'content', 'posts');
 
 export function getPostData(postIdentifier: string): Post {
-  const postSlug = postIdentifier.replace(/\.md$/, ""); // removes file extension
+  let postSlug, fileContent;
+  postSlug = postIdentifier.replace(/\.md$/, ''); // removes file extension
   const filePath = path.join(postsDirectory, `${postSlug}.md`);
-  const fileContent = fs.readFileSync(filePath, "utf-8");
+  fileContent = fs.readFileSync(filePath, 'utf-8');
   const { data, content } = matter(fileContent);
 
   return {
