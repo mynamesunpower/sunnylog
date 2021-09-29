@@ -1,8 +1,9 @@
 import { MongoClient } from 'mongodb';
+import { NextApiRequest, NextApiResponse } from 'next';
 
 const DATABASE_NAME = 'my-site';
 
-async function handler(req, res) {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     const { email, name, message } = req.body;
 

@@ -16,6 +16,7 @@ const AllPostPage: React.FC<CommonProps> = (props) => {
   );
 };
 
+// TODO Type GetStaticProps 재확인!
 export function getStaticProps() {
   const allPosts = getAllPosts();
 

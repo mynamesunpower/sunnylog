@@ -28,6 +28,7 @@ export function getStaticProps(context) {
   };
 }
 
+// TODO Type GetStaticPaths 확인!
 export function getStaticPaths() {
   const postFilenames = getPostsFiles();
   const slugs = postFilenames.map((fileName) => fileName.replace(/\.md$/, ''));
