@@ -1,7 +1,7 @@
-import React from "react";
-import Link from "next/link";
-import Logo from "./logo";
-import classes from "./main-navigation.module.css";
+import React from 'react';
+import Link from 'next/link';
+import Logo from './logo';
+import classes from './main-navigation.module.css';
 
 const MainNavigation: React.FC = () => {
   return (
@@ -14,13 +14,19 @@ const MainNavigation: React.FC = () => {
       <nav>
         <ul>
           <li>
-            <Link href="/about">About</Link>
+            <Link href="/profile">Profile</Link>
           </li>
           <li>
             <Link href="/posts">Posts</Link>
           </li>
           <li>
             <Link href="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link href="/auth">Login</Link>
+          </li>
+          <li>
+            <button>Logout</button>
           </li>
         </ul>
       </nav>
