@@ -27,8 +27,8 @@ const ContactForm: React.FC = () => {
   useEffect(() => {
     if (requestStatus === 'success' || requestStatus === 'error') {
       const timer = setTimeout(() => {
-        setRequestStatus(null);
-        setRequestError(null);
+        setRequestStatus('');
+        setRequestError('');
       }, 2000);
 
       return () => clearTimeout(timer);
@@ -51,7 +51,7 @@ const ContactForm: React.FC = () => {
       setEnteredMessage('');
       setEnteredEmail('');
       setEnteredName('');
-    } catch (error) {
+    } catch (error: any) {
       setRequestError(error.message);
       setRequestStatus('error');
     }
