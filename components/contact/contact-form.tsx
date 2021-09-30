@@ -1,6 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import classes from './contact-form.module.css';
 import Notification from '../ui/notification';
+import {
+  ActionsDiv,
+  ContactH1,
+  ContactSection,
+  ControlDiv,
+  ControlsDiv,
+  FormButton,
+  FormInput,
+  FormLabel,
+  FormTextarea,
+} from './contact-form-theme';
 
 async function sendContactData(contactDetails: any): Promise<void> {
   const response = await fetch('/api/contact', {
@@ -84,45 +94,45 @@ const ContactForm: React.FC = () => {
   }
 
   return (
-    <section className={classes.contact}>
-      <h1>문의하기</h1>
-      <form className={classes.form} onSubmit={sendMessageHandler}>
-        <div className={classes.controls}>
-          <div className={classes.control}>
-            <label htmlFor="email">이름</label>
-            <input
+    <ContactSection>
+      <ContactH1>문의하기</ContactH1>
+      <form onSubmit={sendMessageHandler}>
+        <ControlsDiv>
+          <ControlDiv>
+            <FormLabel htmlFor="email">이름</FormLabel>
+            <FormInput
               type="text"
               id="name"
               required
               value={enteredName}
               onChange={(event) => setEnteredName(event.target.value)}
             />
-          </div>
-          <div className={classes.control}>
-            <label htmlFor="name">이메일</label>
-            <input
+          </ControlDiv>
+          <ControlDiv>
+            <FormLabel htmlFor="name">이메일</FormLabel>
+            <FormInput
               type="email"
               id="email"
               required
               value={enteredEmail}
               onChange={(event) => setEnteredEmail(event.target.value)}
             />
-          </div>
-        </div>
-        <div className={classes.control}>
-          <label htmlFor="message">내용</label>
-          <textarea
+          </ControlDiv>
+        </ControlsDiv>
+        <ControlDiv>
+          <FormLabel htmlFor="message">내용</FormLabel>
+          <FormTextarea
             id="message"
             rows={5}
             required
             value={enteredMessage}
             onChange={(event) => setEnteredMessage(event.target.value)}
           />
-        </div>
+        </ControlDiv>
 
-        <div className={classes.actions}>
-          <button>문의 보내기</button>
-        </div>
+        <ActionsDiv>
+          <FormButton>문의 보내기</FormButton>
+        </ActionsDiv>
       </form>
       {notification && (
         <Notification
@@ -131,7 +141,7 @@ const ContactForm: React.FC = () => {
           status={notification.status}
         />
       )}
-    </section>
+    </ContactSection>
   );
 };
 

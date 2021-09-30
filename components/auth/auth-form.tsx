@@ -1,8 +1,17 @@
 import React, { useRef, useState } from 'react';
-import classes from './auth-form.module.css';
 import { signIn } from 'next-auth/client';
+import {
+  Section,
+  ActionButton,
+  ActionToggleButton,
+  ActionDiv,
+  H1,
+  ControlLabel,
+  ControlInput,
+  ControlDiv,
+} from './auth-form-theme';
 
-const createUser = async (email: string, password: string) => {
+const createUser = async (email: string, password: string): Promise<any> => {
   const response = await fetch('/api/auth/signup', {
     method: 'POST',
     body: JSON.stringify({ email, password }),
@@ -67,34 +76,30 @@ const AuthForm: React.FC = () => {
   };
 
   return (
-    <section className={classes.auth}>
-      <h1>{isLogin ? '로그인' : '가입하기'}</h1>
+    <Section>
+      <H1>{isLogin ? '로그인' : '가입하기'}</H1>
       <form onSubmit={submitHandler}>
-        <div className={classes.control}>
-          <label htmlFor="email">이메일</label>
-          <input type="email" id="email" ref={emailInputRef} required />
-        </div>
-        <div className={classes.control}>
-          <label htmlFor="password">비밀번호</label>
-          <input
+        <ControlDiv>
+          <ControlLabel htmlFor="email">이메일</ControlLabel>
+          <ControlInput type="email" id="email" ref={emailInputRef} required />
+        </ControlDiv>
+        <ControlDiv>
+          <ControlLabel htmlFor="password">비밀번호</ControlLabel>
+          <ControlInput
             type="password"
             id="password"
             ref={passwordInputRef}
             required
           />
-        </div>
-        <div className={classes.actions}>
-          <button>{isLogin ? '로그인' : '계정 생성'}</button>
-          <button
-            type="button"
-            className={classes.toggle}
-            onClick={switchAuthModeHandler}
-          >
+        </ControlDiv>
+        <ActionDiv>
+          <ActionButton>{isLogin ? '로그인' : '계정 생성'}</ActionButton>
+          <ActionToggleButton type="button" onClick={switchAuthModeHandler}>
             {isLogin ? '새 계정 만들기' : '존재하는 계정으로 로그인'}
-          </button>
-        </div>
+          </ActionToggleButton>
+        </ActionDiv>
       </form>
-    </section>
+    </Section>
   );
 };
 
