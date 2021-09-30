@@ -11,7 +11,7 @@ export default NextAuth({
     //
     // 내 커스텀 credentials
     Providers.Credentials({
-      async authorize(credentials: any) {
+      async authorize(credentials: { email: string; password: string }) {
         const client = await connectToDatabase();
 
         const usersCollection = client.db().collection('users');

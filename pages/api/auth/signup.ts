@@ -2,7 +2,10 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { connectToDatabase } from '../../../lib/database-util';
 import { hashPassword } from '../../../lib/auth';
 
-const Handler = async (req: NextApiRequest, res: NextApiResponse) => {
+const Handler = async (
+  req: NextApiRequest,
+  res: NextApiResponse,
+): Promise<any> => {
   if (req.method !== 'POST') {
     return;
   }

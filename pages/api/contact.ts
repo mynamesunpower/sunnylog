@@ -1,9 +1,13 @@
 import { MongoClient } from 'mongodb';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { connectToDatabase } from '../../lib/database-util';
 
 const DATABASE_NAME = 'my-site';
 
-async function handler(req: NextApiRequest, res: NextApiResponse) {
+async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+): Promise<void> {
   if (req.method === 'POST') {
     const { email, name, message } = req.body;
 
@@ -27,9 +31,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     };
     let client;
     try {
-      client = await MongoClient.connect(
-        `mongodb+srv://${process.env.mongodb_username}:${process.env.ATLAS_PASSWORD}@cluster0.r2ftk.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`,
-      );
+      client = await connectToDatabase();
     } catch (error) {
       res.status(500).json({ message: 'Could not connect to database.' });
       return;
