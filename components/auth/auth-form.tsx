@@ -189,6 +189,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ providers }) => {
       </form>
       <ActionDiv>
         <div>
+          {/* TODO 아이콘 사이즈 안맞음. */}
           {Object.values(providers).map((provider: any) => {
             if (provider.name.toLowerCase() === 'credentials') return;
             return (

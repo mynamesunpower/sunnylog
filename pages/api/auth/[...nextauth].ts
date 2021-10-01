@@ -17,8 +17,8 @@ export default NextAuth({
       clientId: process.env.KAKAO_CLIENT_SECRET,
     }),
     Providers.Google({
-      clientId: '',
-      clientSecret: '',
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
     Providers.GitHub({
       clientId: process.env.GITHUB_CLIENT_ID,
