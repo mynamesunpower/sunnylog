@@ -121,11 +121,13 @@ const AuthForm: React.FC<AuthFormProps> = ({ providers }) => {
 
   const router = useRouter();
 
-  function switchAuthModeHandler() {
+  function switchAuthModeHandler(): void {
     setIsLogin((prevState) => !prevState);
   }
 
-  const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
+  const submitHandler = async (
+    event: React.FormEvent<HTMLFormElement>,
+  ): Promise<void> => {
     event.preventDefault();
     let enteredEmail, enteredPassword;
 
@@ -136,10 +138,10 @@ const AuthForm: React.FC<AuthFormProps> = ({ providers }) => {
       enteredPassword = passwordInputRef.current.value;
     }
 
-    // 검증 (optional)
+    // TODO front-end 검증
 
+    // 직접 로그인
     if (isLogin) {
-      // 로그인
       const result = await signIn('credentials', {
         redirect: false,
         email: enteredEmail,
@@ -148,7 +150,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ providers }) => {
 
       if (result) {
         if (!result.error) {
-          // set some auth state
+          // credential 인증 이후
           router.replace('/profile');
         }
       }
@@ -191,7 +193,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ providers }) => {
         <div>
           {/* TODO 아이콘 사이즈 안맞음. */}
           {Object.values(providers).map((provider: any) => {
-            if (provider.name.toLowerCase() === 'credentials') return;
+            if (provider.name === 'Credentials') return;
             return (
               <SocialLoginButton
                 key={provider.id}
