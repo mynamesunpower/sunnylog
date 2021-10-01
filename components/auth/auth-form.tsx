@@ -13,6 +13,8 @@ import { signIn } from 'next-auth/client';
 // TODO 이거 styled-component를 별도의 파일로 관리하면 새로고침때 CSS가 적용이 안되고 있음
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+import { ProviderType } from 'next-auth/providers';
 
 export const Section = styled.section`
   margin: 3rem auto;
@@ -85,6 +87,11 @@ export const ActionToggleButton = styled.button`
   }
 `;
 
+const SocialLoginButton = styled.button`
+  background-color: transparent;
+  border: none;
+`;
+
 const createUser = async (email: string, password: string): Promise<any> => {
   const response = await fetch('/api/auth/signup', {
     method: 'POST',
@@ -103,7 +110,11 @@ const createUser = async (email: string, password: string): Promise<any> => {
   return data;
 };
 
-const AuthForm: React.FC = () => {
+interface AuthFormProps {
+  providers: ProviderType[];
+}
+
+const AuthForm: React.FC<AuthFormProps> = ({ providers }) => {
   const [isLogin, setIsLogin] = useState(true);
   const emailInputRef = useRef<HTMLInputElement>(null);
   const passwordInputRef = useRef<HTMLInputElement>(null);
@@ -176,6 +187,25 @@ const AuthForm: React.FC = () => {
           </ActionToggleButton>
         </ActionDiv>
       </form>
+      <ActionDiv>
+        <div>
+          {Object.values(providers).map((provider: any) => {
+            if (provider.name.toLowerCase() === 'credentials') return;
+            return (
+              <SocialLoginButton
+                key={provider.id}
+                onClick={() => signIn(provider.id)}
+              >
+                <Image
+                  src={`/images/ui/login_${provider.name.toLowerCase()}.png`}
+                  width={48}
+                  height={48}
+                />
+              </SocialLoginButton>
+            );
+          })}
+        </div>
+      </ActionDiv>
     </Section>
   );
 };

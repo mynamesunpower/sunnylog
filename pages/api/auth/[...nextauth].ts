@@ -4,12 +4,31 @@ import { connectToDatabase } from '../../../lib/database-util';
 import { verifyPassword } from '../../../lib/auth';
 
 export default NextAuth({
+  pages: {
+    signIn: '/auth',
+  },
   session: {
     jwt: true,
+    maxAge: 10 * 60,
+    updateAge: 60,
   },
   providers: [
-    //
-    // 내 커스텀 credentials
+    Providers.Kakao({
+      clientId: process.env.KAKAO_CLIENT_SECRET,
+    }),
+    Providers.Google({
+      clientId: '',
+      clientSecret: '',
+    }),
+    Providers.GitHub({
+      clientId: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    }),
+    Providers.Naver({
+      clientId: process.env.NAVER_CLIENT_ID,
+      clientSecret: process.env.NAVER_CLIENT_SECRET,
+    }),
+    // 직접 로그인
     Providers.Credentials({
       async authorize(credentials: { email: string; password: string }) {
         const client = await connectToDatabase();

@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import AuthForm from '../components/auth/auth-form';
-import { getSession } from 'next-auth/client';
+import { getSession, providers } from 'next-auth/client';
 import { useRouter } from 'next/router';
 
-const AuthPage: React.FC = () => {
+interface AuthPageProps {
+  providers: any;
+}
+
+const AuthPage: React.FC<AuthPageProps> = ({ providers }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -21,7 +25,15 @@ const AuthPage: React.FC = () => {
     return <p>Loading...</p>;
   }
 
-  return <AuthForm />;
+  return <AuthForm providers={providers} />;
 };
+
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      providers: await providers(),
+    },
+  };
+}
 
 export default AuthPage;
