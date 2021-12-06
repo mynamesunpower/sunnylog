@@ -2,13 +2,13 @@
 title: 'Hello TypeScript'
 date: '2021-9-29'
 author: 'Sunny Kim'
-image: getting-started-nextjs.png
+image: hello-typescript.png
 excerpt: "헬로우"
 isFeatured: true
 ---
 
 ***Do it! 타입스크립트 프로그래밍 (전예홍 선생님)*** 도서로 
-공부하는 내용을 정리합니다.
+공부하는 내용을 정리
 
 [구매하기](http://www.yes24.com/Product/Goods/89328106)
  

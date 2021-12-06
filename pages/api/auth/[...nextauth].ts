@@ -1,4 +1,4 @@
-import NextAuth, { Profile, TokenSet } from 'next-auth';
+import NextAuth, { TokenSet } from 'next-auth';
 import Providers from 'next-auth/providers';
 import { connectToDatabase } from '../../../lib/database-util';
 import { verifyPassword } from '../../../lib/auth';

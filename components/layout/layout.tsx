@@ -1,10 +1,14 @@
-import React from "react";
-import MainNavigation from "./main-navigation";
+import React, { PropsWithChildren } from 'react';
+import MainNavigation from './main-navigation';
+import Hero from '../mainpage/hero';
 
-const Layout: React.FC = (props) => {
+type Props = {};
+
+const Layout: React.FC = (props: PropsWithChildren<Props>) => {
   return (
     <>
       <MainNavigation />
+      <Hero />
       <main>{props.children}</main>
     </>
   );

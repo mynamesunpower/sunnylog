@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Provider session={pageProps.session}>
       <Layout>
         <Head>
-          <title>어나더</title>
+          <title>써니로그</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
         <Component {...pageProps} />

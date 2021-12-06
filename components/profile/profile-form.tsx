@@ -1,9 +1,10 @@
 import classes from './profile-form.module.css';
 import React, { useRef } from 'react';
 
-const changePassword = async (oldPassword: string, newPassword: string) => {
-  console.log(`old: ${oldPassword}`);
-  console.log(`new: ${newPassword}`);
+const changePassword = async (
+  oldPassword: string,
+  newPassword: string,
+): Promise<Response> => {
   const response = await fetch('/api/user/change-password', {
     method: 'PATCH',
     body: JSON.stringify({ oldPassword, newPassword }),

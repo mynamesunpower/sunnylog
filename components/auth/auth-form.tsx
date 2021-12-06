@@ -15,22 +15,8 @@ import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { ProviderType } from 'next-auth/providers';
-
-export const Section = styled.section`
-  margin: 3rem auto;
-  width: 95%;
-  max-width: 25rem;
-  border-radius: 6px;
-  background-color: #38015c;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-  padding: 1rem;
-  text-align: center;
-`;
-
-export const H1 = styled.h1`
-  text-align: center;
-  color: white;
-`;
+import Section from '../atoms/Section';
+import H1 from '../atoms/H1';
 
 export const ControlDiv = styled.div`
   margin-bottom: 0.5rem;
@@ -191,7 +177,6 @@ const AuthForm: React.FC<AuthFormProps> = ({ providers }) => {
       </form>
       <ActionDiv>
         <div>
-          {/* TODO 아이콘 사이즈 안맞음. */}
           {Object.values(providers).map((provider: any) => {
             if (provider.name === 'Credentials') return;
             return (

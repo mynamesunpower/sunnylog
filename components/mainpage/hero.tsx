@@ -9,12 +9,20 @@ const Hero: React.FC = () => {
         <Image
           src="/images/site/sunpower_transparent.png"
           alt="Image showing Sunny"
-          width={300}
-          height={300}
+          width={150}
+          height={150}
         />
       </div>
-      <h1>안녕하세요</h1>
-      <p>개발자입니다</p>
+      <h1>안녕하세요! 김태양입니다.</h1>
+      <div className={classes.introduce}>
+        Web Developer
+        <p>
+          Skills(front-end): HTML, CSS, JavaScript, TypeScript, React.js,
+          Next.js <br />
+          Skills(back-end): Java, Spring Boot, JPA, Mybatis <br />
+          Skills(Database): Oracle, MySQL, MariaDB, MongoDB
+        </p>
+      </div>
     </section>
   );
 };
