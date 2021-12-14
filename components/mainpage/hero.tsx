@@ -17,10 +17,15 @@ const Hero: React.FC = () => {
       <div className={classes.introduce}>
         Web Developer
         <p>
-          Skills(front-end): HTML, CSS, JavaScript, TypeScript, React.js,
-          Next.js <br />
-          Skills(back-end): Java, Spring Boot, JPA, Mybatis <br />
-          Skills(Database): Oracle, MySQL, MariaDB, MongoDB
+          포스트들을 Notion에서 이관해야 하는데, 아직 하지 못하고 있습니다.
+          Notion을 참고해 주세요. 감사합니다.
+          <a href="https://dogpitch.notion.site/sunnylog-f27e0f50e96d402bb78da48af16d4315">
+            Notion
+          </a>
+          {/*Skills(front-end): HTML, CSS, JavaScript, TypeScript, React.js,*/}
+          {/*Next.js <br />*/}
+          {/*Skills(back-end): Java, Spring Boot, JPA, Mybatis <br />*/}
+          {/*Skills(Database): Oracle, MySQL, MariaDB, MongoDB*/}
         </p>
       </div>
     </section>
