@@ -7,7 +7,7 @@ const ContactPage: React.FC = () => {
     <>
       <Head>
         <title>문의하기</title>
-        <meta name="description" content="어나더에게 문의하세요." />
+        <meta name="description" content="메일 보내기" />
       </Head>
       <ContactForm />
     </>

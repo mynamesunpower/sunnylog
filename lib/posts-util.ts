@@ -13,6 +13,7 @@ export function getPostData(postIdentifier: string): Post {
 
   return {
     date: data.date,
+    category: data.category,
     image: data.image,
     title: data.title,
     isFeatured: data.isFeatured,
@@ -34,7 +35,6 @@ export function getAllPosts(): Post[] {
     .sort((postA: Post, postB: Post) => (postA.date > postB.date ? -1 : 1));
 }
 
-export function getFeaturedPosts(): Post[] {
-  const allPosts = getAllPosts();
-  return allPosts.filter((post) => post.isFeatured);
+export function getNewPosts(): Post[] {
+  return getAllPosts().filter((v, i) => i < 5);
 }

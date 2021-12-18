@@ -4,6 +4,7 @@ date: '2021-9-29'
 author: 'Sunny Kim'
 image: hello-typescript.png
 excerpt: "헬로우"
+category: 'TypeScript'
 isFeatured: true
 ---
 

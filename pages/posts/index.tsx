@@ -8,15 +8,15 @@ const AllPostPage: React.FC<CommonProps> = (props) => {
   return (
     <>
       <Head>
-        <title>모든 포스트</title>
-        <meta name="description" content="어나더의 모든 포스트" />
+        <title>모든 글 보기</title>
+        <meta name="description" content="써니로그의 모든 글" />
       </Head>
       <AllPosts posts={props.posts} />
     </>
   );
 };
 
-// TODO Type GetStaticProps 재확인!
+// TODO Type GetStaticProps 확인!
 export function getStaticProps() {
   const allPosts = getAllPosts();
 
