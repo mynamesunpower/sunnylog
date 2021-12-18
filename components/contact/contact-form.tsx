@@ -1,18 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Notification from '../ui/notification';
-import styled from 'styled-components';
-// import {
-//   ActionsDiv,
-//   ContactH1,
-//   ContactSection,
-//   ControlDiv,
-//   ControlsDiv,
-//   FormButton,
-//   FormInput,
-//   FormLabel,
-//   FormTextarea,
-// } from './contact-form-theme';
-export const ContactSection = styled.section`
+import styled from '@emotion/styled';
+
+const ContactSection = styled.section`
   margin: var(--size-8) auto;
   border-radius: 6px;
   background-color: var(--color-grey-100);
@@ -23,7 +13,7 @@ export const ContactSection = styled.section`
   font-size: var(--size-6);
 `;
 
-export const ContactH1 = styled.h1`
+const ContactH1 = styled.h1`
   font-size: var(--size-8);
   margin: var(--size-4) 0;
   text-align: left;
@@ -33,14 +23,14 @@ export const ContactH1 = styled.h1`
   }
 `;
 
-export const FormLabel = styled.label`
+const FormLabel = styled.label`
   display: block;
   font-family: 'Oswald', sans-serif;
   font-weight: bold;
   margin: var(--size-2) 0 var(--size-1) 0;
 `;
 
-export const FormInput = styled.input`
+const FormInput = styled.input`
   font: inherit;
   padding: var(--size-1);
   border-radius: 4px;
@@ -50,7 +40,7 @@ export const FormInput = styled.input`
   resize: none;
 `;
 
-export const FormTextarea = styled.textarea`
+const FormTextarea = styled.textarea`
   font: inherit;
   padding: var(--size-1);
   border-radius: 4px;
@@ -60,23 +50,23 @@ export const FormTextarea = styled.textarea`
   resize: none;
 `;
 
-export const ControlsDiv = styled.div`
+const ControlsDiv = styled.div`
   display: flex;
   column-gap: 1rem;
   flex-wrap: wrap;
 `;
 
-export const ControlDiv = styled.div`
+const ControlDiv = styled.div`
   flex: 1;
   min-width: 10rem;
 `;
 
-export const ActionsDiv = styled.div`
+const ActionsDiv = styled.div`
   margin-top: var(--size-4);
   text-align: right;
 `;
 
-export const FormButton = styled.button`
+const FormButton = styled.button`
   font: inherit;
   cursor: pointer;
   background-color: var(--color-primary-700);

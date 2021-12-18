@@ -1,17 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { signIn } from 'next-auth/client';
-// import {
-//   Section,
-//   ActionButton,
-//   ActionToggleButton,
-//   ActionDiv,
-//   H1,
-//   ControlLabel,
-//   ControlInput,
-//   ControlDiv,
-// } from './auth-form-theme';
-// TODO 이거 styled-component를 별도의 파일로 관리하면 새로고침때 CSS가 적용이 안되고 있음
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { ProviderType } from 'next-auth/providers';

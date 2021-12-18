@@ -2,10 +2,47 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import classes from './post-item.module.css';
+import styled from '@emotion/styled';
 
 interface PostItemProps {
   post: any;
 }
+
+const StyledPost = styled.li`
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  background-color: var(--color-grey-800);
+  text-align: center;
+
+  a {
+    color: var(--color-grey-100);
+  }
+`;
+const StyledImage = styled.div`
+  width: 100%;
+  max-height: 20rem;
+  overflow: hidden;
+
+  img {
+    object-fit: cover;
+  }
+`;
+
+const StyledContent = styled.div`
+  padding: var(--size-4);
+  h3 {
+    margin: var(--size-2) 0;
+    font-size: var(--size-5);
+  }
+  time {
+    font-style: italic;
+    color: var(--color-grey-300);
+    font-size: var(--size-3);
+  }
+  p {
+    font-size: var(--size-3);
+    line-height: var(--size-4);
+  }
+`;
 
 const PostItem: React.FC<PostItemProps> = ({ post }) => {
   const { title, image, excerpt, date, slug } = post;
@@ -20,10 +57,10 @@ const PostItem: React.FC<PostItemProps> = ({ post }) => {
   const linkPath = `/posts/${slug}`;
 
   return (
-    <li className={classes.post}>
+    <StyledPost>
       <Link href={linkPath}>
         <a>
-          <div className={classes.image}>
+          <StyledImage>
             <Image
               src={imagePath}
               alt={title}
@@ -31,15 +68,15 @@ const PostItem: React.FC<PostItemProps> = ({ post }) => {
               height={200}
               layout="responsive"
             />
-          </div>
-          <div className={classes.content}>
+          </StyledImage>
+          <StyledContent>
             <h3>{title}</h3>
             <time>{formattedDate}</time>
             <p>{excerpt}</p>
-          </div>
+          </StyledContent>
         </a>
       </Link>
-    </li>
+    </StyledPost>
   );
 };
 

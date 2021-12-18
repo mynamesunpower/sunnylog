@@ -1,5 +1,47 @@
-import classes from './profile-form.module.css';
 import React, { useRef } from 'react';
+import styled from '@emotion/styled';
+
+const StyledForm = styled.form`
+  width: 95%;
+  max-width: 25rem;
+  margin: 2rem auto;
+`;
+
+const StyledDiv = styled.div`
+  margin-bottom: 0.5rem;
+  label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #353336;
+    display: block;
+  }
+  input {
+    display: block;
+    font: inherit;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #38015c;
+    padding: 0.25rem;
+    background-color: #f7f0fa;
+  }
+`;
+
+const StyledButtonDiv = styled.div`
+  margin-top: 1.5rem;
+  button {
+    font: inherit;
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    background-color: #38015c;
+    color: white;
+    border: 1px solid #38015c;
+  }
+  button:hover {
+    background-color: #540d83;
+    border-color: #540d83;
+  }
+`;
 
 const changePassword = async (
   oldPassword: string,
@@ -44,19 +86,19 @@ const ProfileForm: React.FC = () => {
   };
 
   return (
-    <form className={classes.form} onSubmit={submitHandler}>
-      <div className={classes.control}>
+    <StyledForm onSubmit={submitHandler}>
+      <StyledDiv>
         <label htmlFor="old-password">기존 비밀번호</label>
         <input type="password" id="old-password" ref={oldPasswordRef} />
-      </div>
-      <div className={classes.control}>
+      </StyledDiv>
+      <StyledDiv>
         <label htmlFor="new-password">새 비밀번호</label>
         <input type="password" id="new-password" ref={newPasswordRef} />
-      </div>
-      <div className={classes.action}>
+      </StyledDiv>
+      <StyledButtonDiv>
         <button>비밀번호 변경</button>
-      </div>
-    </form>
+      </StyledButtonDiv>
+    </StyledForm>
   );
 };
 

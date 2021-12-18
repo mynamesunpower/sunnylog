@@ -1,7 +1,14 @@
 import ProfileForm from './profile-form';
-import classes from './user-profile.module.css';
-import React, { useEffect, useState } from 'react';
-import { useSession, getSession } from 'next-auth/client';
+import React from 'react';
+import styled from '@emotion/styled';
+
+const StyledSection = styled.section`
+  margin: 3rem auto;
+  text-align: center;
+  h1 {
+    font-size: 5rem;
+  }
+`;
 
 const UserProfile: React.FC = () => {
   // const [isLoading, setIsLoading] = useState(true);
@@ -20,10 +27,10 @@ const UserProfile: React.FC = () => {
   // }
 
   return (
-    <section className={classes.profile}>
+    <StyledSection>
       <h1>테스트</h1>
       <ProfileForm />
-    </section>
+    </StyledSection>
   );
 };
 

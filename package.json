@@ -10,6 +10,8 @@
     "export": "next export"
   },
   "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
     "@types/bcryptjs": "^2.4.2",
     "@types/react": "^17.0.21",
     "@types/react-dom": "^17.0.9",
@@ -24,8 +26,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-markdown": "^6.0.0",
-    "react-syntax-highlighter": "^15.4.4",
-    "styled-components": "^5.3.1"
+    "react-syntax-highlighter": "^15.4.4"
   },
   "devDependencies": {
     "eslint": "7.32.0",
