@@ -1,6 +1,8 @@
 # sunnylog - 개인 블로그
 [링크](https://sunnylog.vercel.app)
 
+- 완전히 티스토리 같은 상용 블로그를 대체하기에는 편의성과 접근성에서 무리가 있는 듯하기도 하면서, 기존 노션에 정리한 자료들을 이관하는게 문제다.
+
 ### Skills
 - Next.js
   - 인증: NextAuth 로 구현
