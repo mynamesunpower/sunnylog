@@ -3,33 +3,58 @@ import Link from 'next/link';
 import Logo from './logo';
 import { useSession, signOut } from 'next-auth/client';
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
-const StyledHeader = styled.header`
+const backgroundColor = (props) => {
+  console.log(props);
+  return css`
+    //background-color: rgba(67, 46, 81, 0.9);
+  `;
+};
+export const StyledHeader = styled.header`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   gap: 1rem;
-  background-color: #ffffff;
+  ${backgroundColor};
+  // background-color: rgba(30, 25, 79, 0.94);
 `;
 
-const StyledAnchor = styled.a`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  background-color: #ffffff;
+/*
+  Logo 영역
+ */
+export const StyledAnchor = styled.a`
+  cursor: pointer;
+  //background-color: rgb(30, 25, 79, 0.94);
 `;
 
-const StyledNav = styled.nav``;
+/*
+  Navigation 영역
+ */
+const StyledNav = styled.nav`
+  width: 100%;
+  ul {
+    display: flex;
+    align-items: center;
+  }
+  li {
+    flex: 1 1 20px;
+    list-style: none;
+  }
+  span {
+    cursor: pointer;
+  }
+`;
 
-const StyledText = styled.text`
+/*
+  Navigation Text 영역
+ */
+const StyledText = styled.span`
   text-align: left;
   vertical-align: top;
   font-size: 20px;
-  font-family: Futura PT;
-  line-height: 30%;
-  color: #2e2675;
+  color: #ffffff;
 `;
 
 const MainNavigation: React.FC = () => {
@@ -46,11 +71,13 @@ const MainNavigation: React.FC = () => {
           <Logo />
         </StyledAnchor>
       </Link>
-      <nav>
+      <StyledNav>
         <ul>
           {!session && !loading && (
             <li>
-              <Link href="/auth">Login</Link>
+              <Link href="/auth">
+                <StyledText>Login</StyledText>
+              </Link>
             </li>
           )}
           {session && (
@@ -61,7 +88,9 @@ const MainNavigation: React.FC = () => {
             </li>
           )}
           <li>
-            <Link href="/posts">Posts</Link>
+            <Link href="/posts">
+              <StyledText>Posts</StyledText>
+            </Link>
           </li>
           <li>
             <Link href="/contact">
@@ -74,7 +103,7 @@ const MainNavigation: React.FC = () => {
             </li>
           )}
         </ul>
-      </nav>
+      </StyledNav>
     </StyledHeader>
   );
 };
